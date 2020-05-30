@@ -1,3 +1,5 @@
+namespace com.bugstory;
+
 using {
     managed,
     cuid,
@@ -10,7 +12,6 @@ using {
     dateInfo
 } from './custom-types';
 
-namespace com.bugstory;
 
 entity Users : managed {
     key userName : String;
@@ -24,14 +25,18 @@ entity Roles : managed {
 }
 
 entity Projects : managed, dateInfo {
-    key name        : String;
-        description : String;
+    key project_name : String;
+        description  : String;
+        issues       : Composition of many Issues
+                           on issues.project_name = $self;
 }
 
 entity Issues : managed, cuid, dateInfo {
-    type        : IssueType;
-    description : String;
-    priority    : IssuePriority;
+    key ID           : Association to Backlog;
+        type         : IssueType;
+        description  : String;
+        project_name : Association to Projects;
+        priority     : IssuePriority;
 }
 
 entity Sprints : managed, cuid, dateInfo {
