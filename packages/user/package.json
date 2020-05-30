@@ -1,0 +1,14 @@
+{
+    "name": "user",
+    "version": "1.0.0",
+    "description": "user schema package",
+    "license": "ISC",
+    "dependencies": {
+        "@sap/cds": "^3",
+        "express": "^4"
+    },
+    "files": [
+        "db",
+        "index.cds"
+    ]
+}
