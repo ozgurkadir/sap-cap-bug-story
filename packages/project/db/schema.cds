@@ -11,18 +11,11 @@ using {
     IssuePriority,
     dateInfo
 } from './custom-types';
+using {
+    com.bugstory.user.Users,
+    com.bugstory.user.Roles
+} from '../../user';
 
-
-entity Users : managed {
-    key userName : String;
-        name     : String;
-        email    : String;
-}
-
-entity Roles : managed {
-    key name        : String;
-        description : String;
-}
 
 entity Projects : managed, dateInfo {
     key project_name : String;
