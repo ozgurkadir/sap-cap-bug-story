@@ -1,4 +1,4 @@
-namespace com.bugstory;
+namespace com.bugstory.project;
 
 using {
     managed,
@@ -11,11 +11,6 @@ using {
     IssuePriority,
     dateInfo
 } from './custom-types';
-using {
-    com.bugstory.user.Users,
-    com.bugstory.user.Roles
-} from '../../user';
-
 
 entity Projects : managed, dateInfo {
     key project_name : String;

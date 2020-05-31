@@ -1,7 +1,7 @@
 {
-  "name": "project",
+  "name": "launchpad",
   "version": "1.0.0",
-  "description": "project schema package",
+  "description": "launchpad package",
   "license": "ISC",
   "dependencies": {
     "@sap/cds": "^3",
@@ -21,7 +21,6 @@
     }
   },
   "files": [
-    "db",
-    "index.cds"
-]
+    "db"
+  ]
 }

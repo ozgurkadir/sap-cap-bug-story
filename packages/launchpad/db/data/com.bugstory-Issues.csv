@@ -1,0 +1,6 @@
+type.issueType;description;priority.issuePriority
+E;Epic project;M
+T;Task project T;L
+S;Story 1 ; L
+E;Epic 2;M
+S;Story 2;M
