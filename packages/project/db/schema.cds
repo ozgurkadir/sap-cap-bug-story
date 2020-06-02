@@ -8,23 +8,36 @@ using {
 
 using {
     IssueType,
+    ActionType,
     IssuePriority,
     dateInfo
 } from './custom-types';
 
-entity Projects : managed, dateInfo {
-    key project_name : String;
-        description  : String;
-        issues       : Composition of many Issues
-                           on issues.project_name = $self;
+using {com.bugstory.user.Users} from '../../user/db/schema';
+
+
+entity Projects : managed, cuid, dateInfo {
+    project_name : String;
+    description  : String;
+    issues       : Composition of many Issues
+                       on issues.project_id = $self;
 }
 
 entity Issues : managed, cuid, dateInfo {
-    key ID           : Association to Backlog;
-        type         : IssueType;
-        description  : String;
-        project_name : Association to Projects;
-        priority     : IssuePriority;
+    key ID          : Association to Backlog;
+        type        : IssueType;
+        description : String;
+        project_id  : Association to Projects;
+        priority    : IssuePriority;
+}
+
+entity IssueActions : managed, cuid {
+    issue_id    : Association to Issues;
+    userName    : Association to Users;
+    actiontype  : ActionType;
+    actionlevel : String;
+    actionbody  : String;
+    actionNum   : Integer;
 }
 
 entity Sprints : managed, cuid, dateInfo {
