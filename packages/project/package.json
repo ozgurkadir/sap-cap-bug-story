@@ -10,16 +10,7 @@
     "scripts": {
         "start": "npx cds run"
     },
-    "cds": {
-        "requires": {
-            "db": {
-                "kind": "sqlite",
-                "credentials": {
-                    "database": "db/bugstory.db"
-                }
-            }
-        }
-    },
+    "cds": {},
     "files": [
         "db",
         "index.cds"
