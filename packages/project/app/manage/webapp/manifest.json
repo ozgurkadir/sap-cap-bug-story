@@ -1,0 +1,63 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "project",
+        "type": "application",
+        "title": "Manage Projects",
+        "description": "Manage Projects",
+        "i18n": "../../../assets/i18n/i18n.properties",
+        "dataSources": {
+            "ProjectsService": {
+                "uri": "/project/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "-sourceTemplate": {
+            "id": "ui5template.basicSAPUI5ApplicationProject",
+            "-id": "ui5template.smartTemplate",
+            "-version": "1.40.12"
+        }
+    },
+    "sap.ui5": {
+        "dependencies": {
+            "libs": {
+                "sap.fe": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "../../../assets/i18n/i18n.properties"
+            },
+            "": {
+                "dataSource": "ProjectsService",
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect" : true,
+                    "earlyRequests": true,
+                    "groupProperties": {
+                        "default": {
+                            "submit": "Auto"
+                        }
+                    }
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "fullWidth": false
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    }
+}
