@@ -1,0 +1,8 @@
+{
+    "destinations" : [
+          {
+              "name": "env_destination_saphome",
+              "url": "http://localhost:4004/v2/"
+          }
+    ]  
+}
