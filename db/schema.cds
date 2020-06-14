@@ -27,11 +27,11 @@ entity Roles : managed {
         description : String;
 }
 
-entity Projects : managed, dateInfo {
-    key project_name : String;
-        description  : String;
-        issues       : Composition of many Issues
-                           on issues.project_name = $self;
+entity Projects : managed, dateInfo, cuid {
+    project_name : String;
+    description  : String;
+    issues       : Composition of many Issues
+                       on issues.project_id = $self;
 }
 
 entity Issues : managed, cuid, dateInfo {
