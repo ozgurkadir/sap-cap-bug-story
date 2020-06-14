@@ -15,18 +15,6 @@ using {
     SprintStatu
 } from './custom-types';
 
-
-entity Users : managed {
-    key userName : String;
-        name     : String;
-        email    : String;
-}
-
-entity Roles : managed {
-    key name        : String;
-        description : String;
-}
-
 entity Projects : managed, dateInfo, cuid {
     project_name : String;
     description  : String;
@@ -35,16 +23,17 @@ entity Projects : managed, dateInfo, cuid {
 }
 
 entity Issues : managed, cuid, dateInfo {
-    key ID          : Association to Backlog;
-        type        : IssueType;
-        description : String;
-        project_id  : Association to Projects;
-        priority    : IssuePriority;
+    key ID           : Association to Backlog;
+        type         : IssueType;
+        description  : String;
+        project_id   : Association to Projects;
+        priority     : IssuePriority;
+        sprintIssues : Composition of many SprintIssues
+                           on sprintIssues.issue = $self;
 }
 
 entity IssueActions : managed, cuid {
     issue_id    : Association to Issues;
-    userName    : Association to Users;
     actiontype  : ActionType;
     actionlevel : String;
     actionbody  : String;
@@ -55,6 +44,11 @@ entity Sprints : managed, cuid, dateInfo {
     name        : String;
     description : String;
     status      : SprintStatu;
+}
+
+entity SprintIssues : managed {
+    key issue  : Association to Issues;
+    key sprint : Association to Sprints;
 }
 
 entity Backlog : managed, cuid {
