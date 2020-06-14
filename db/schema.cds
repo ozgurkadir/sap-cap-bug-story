@@ -1,4 +1,4 @@
-namespace com.bugstory.project;
+namespace com.bugstory;
 
 using {
     managed,
@@ -6,12 +6,25 @@ using {
     temporal
 } from '@sap/cds/common';
 
+
 using {
     IssueType,
     IssuePriority,
     dateInfo
 } from './custom-types';
 
+
+entity Users : managed {
+    key userName : String;
+        name     : String;
+        email    : String;
+}
+
+entity Roles : managed {
+    key name        : String;
+        description : String;
+}
+ 
 entity Projects : managed, dateInfo {
     key project_name : String;
         description  : String;
