@@ -1,42 +1,42 @@
 {
-  "name": "bug-story",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/approuter": "^8.0.0",
-    "@sap/cds": "^3",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.4.33",
-    "express": "^4",
-    "passport": "^0.4.1",
-    "sqlite3": "^4.1.1"
-  },
-  "scripts": {
-    "startdev": "npx cds run",
-    "start": "node node_modules/@sap/approuter/approuter.js"
-  },
-  "auth": {
-    "passport": {
-      "strategy": "mock",
-      "users": {
-        "alice": {
-          "roles": [
-            "admin"
-          ]
+    "name": "bug-story",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/approuter": "^8.0.0",
+        "@sap/cds": "^3",
+        "@sap/cds-odata-v2-adapter-proxy": "^1.4.33",
+        "express": "^4",
+        "passport": "^0.4.1",
+        "sqlite3": "^4.1.1"
+    },
+    "scripts": {
+        "startdev": "npx cds run",
+        "start": "node node_modules/@sap/approuter/approuter.js"
+    },
+    "auth": {
+        "passport": {
+            "strategy": "mock",
+            "users": {
+                "alice": {
+                    "roles": [
+                        "admin"
+                    ]
+                }
+            }
         }
-      }
-    }
-  },
-  "cds": {
-    "requires": {
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "database": "db/bugstory.db"
+    },
+    "cds": {
+        "requires": {
+            "db": {
+                "kind": "sqlite",
+                "credentials": {
+                    "database": "db/bugstory.db"
+                }
+            }
         }
-      }
     }
-  }
 }

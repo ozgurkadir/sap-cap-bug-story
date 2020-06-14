@@ -9,8 +9,10 @@ using {
 
 using {
     IssueType,
+    ActionType,
     IssuePriority,
-    dateInfo
+    dateInfo,
+    SprintStatu
 } from './custom-types';
 
 
@@ -24,27 +26,39 @@ entity Roles : managed {
     key name        : String;
         description : String;
 }
- 
-entity Projects : managed, dateInfo {
-    key project_name : String;
-        description  : String;
-        issues       : Composition of many Issues
-                           on issues.project_name = $self;
+
+entity Projects : managed, dateInfo, cuid {
+    project_name : String;
+    description  : String;
+    issues       : Composition of many Issues
+                       on issues.project_id = $self;
 }
 
 entity Issues : managed, cuid, dateInfo {
-    key ID           : Association to Backlog;
-        type         : IssueType;
-        description  : String;
-        project_name : Association to Projects;
-        priority     : IssuePriority;
+    key ID          : Association to Backlog;
+        type        : IssueType;
+        description : String;
+        project_id  : Association to Projects;
+        priority    : IssuePriority;
+}
+
+entity IssueActions : managed, cuid {
+    issue_id    : Association to Issues;
+    userName    : Association to Users;
+    actiontype  : ActionType;
+    actionlevel : String;
+    actionbody  : String;
+    actionNum   : Integer;
 }
 
 entity Sprints : managed, cuid, dateInfo {
+    name        : String;
     description : String;
+    status      : SprintStatu;
 }
 
 entity Backlog : managed, cuid {
+
     description : String;
     issues      : Composition of many Issues
                       on issues.ID = $self;
