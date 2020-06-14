@@ -1,6 +1,6 @@
-using {com.bugstory as bugstory} from '../../launchpad/db/schema';
+using {com.bugstory as bugstory} from '../db/schema';
 
-annotate bugstory.user.Users with @(UI : {
+annotate bugstory.Users with @(UI : {
     Identification  : [{Value : userName}],
     SelectionFields : [
     userName,
@@ -13,7 +13,7 @@ annotate bugstory.user.Users with @(UI : {
     ]
 });
 
-annotate bugstory.project.Projects with @(UI : {
+annotate bugstory.Projects with @(UI : {
     Identification  : [{Value : project_name}],
     SelectionFields : [
     project_name,
