@@ -6,14 +6,16 @@
     "license": "UNLICENSED",
     "private": true,
     "dependencies": {
+        "@sap/approuter": "^8.0.0",
         "@sap/cds": "^3",
+        "@sap/cds-odata-v2-adapter-proxy": "^1.4.33",
         "express": "^4",
         "passport": "^0.4.1",
         "sqlite3": "^4.1.1"
     },
     "scripts": {
-        "start": "npx cds run",
-        "launchpad": "cds watch packages/launchpad"
+        "startdev": "npx cds run",
+        "start": "node node_modules/@sap/approuter/approuter.js"
     },
     "auth": {
         "passport": {

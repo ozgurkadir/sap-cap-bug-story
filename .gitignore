@@ -3,3 +3,5 @@ node_modules
 =======
 package-lock.json
 >>>>>>> bd03ace9e1e29f3edcbad7fa5c1ec6813583b8d2
+/gen
+/db/bugstory.db

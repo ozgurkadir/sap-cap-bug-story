@@ -14,9 +14,9 @@
 				"manage-projects": {
 					title: "Manage Projects",
 					description: "Project Configuration",
-					additionalInformation: "SAPUI5.Component=admin",
+					additionalInformation: "SAPUI5.Component=manage",
 					applicationType : "URL",
-					url: "/admin/webapp",
+					url: "/project/manage/webapp",
 					navigationMode: "embedded"
 				}
 			}
@@ -25,7 +25,13 @@
 
 	<script src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js"></script>
 	<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
-    	data-sap-ui-libs="sap.m, sap.ushell, sap.collaboration, sap.ui.layout"
+		data-sap-ui-libs="sap.m, 
+						  sap.ushell, 
+						  sap.collaboration, 
+						  sap.ui.layout, 
+						  sap.suite.ui.generic.template, 
+						  sap.ui.core, 
+						  sap.ui.generic.app"
     	data-sap-ui-compatVersion="edge"
     	data-sap-ui-theme="sap_fiori_3"
     	data-sap-ui-frameOptions="allow"
