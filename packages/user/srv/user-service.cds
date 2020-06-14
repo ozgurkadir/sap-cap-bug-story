@@ -1,7 +1,10 @@
 using {com.bugstory as allEntities} from '../../launchpad/db/schema';
 
-@path:'/user'
+@path : '/user'
 service UserService {
-    entity Users as projection on allEntities.user.Users;
-    entity Roles as projection on allEntities.user.Roles;
+    @readonly
+    entity Users as select from allEntities.user.Users;
+
+    @readonly
+    entity Roles as select from allEntities.user.Roles;
 }

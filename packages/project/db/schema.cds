@@ -10,7 +10,8 @@ using {
     IssueType,
     ActionType,
     IssuePriority,
-    dateInfo
+    dateInfo,
+    SprintStatu
 } from './custom-types';
 
 using {com.bugstory.user.Users} from '../../user/db/schema';
@@ -41,10 +42,13 @@ entity IssueActions : managed, cuid {
 }
 
 entity Sprints : managed, cuid, dateInfo {
+    name        : String;
     description : String;
+    status      : SprintStatu;
 }
 
 entity Backlog : managed, cuid {
+
     description : String;
     issues      : Composition of many Issues
                       on issues.ID = $self;
