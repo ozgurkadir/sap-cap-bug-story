@@ -15,7 +15,8 @@
     },
     "scripts": {
         "startdev": "npx cds run",
-        "start": "node node_modules/@sap/approuter/approuter.js"
+        "start": "node node_modules/@sap/approuter/approuter.js",
+        "test": "mocha test/project_tests.js --timeout 15000 --exit"
     },
     "auth": {
         "passport": {
@@ -38,5 +39,10 @@
                 }
             }
         }
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "mocha": "^8.0.1"
     }
 }
