@@ -1,8 +1,19 @@
 {
     "destinations" : [
           {
-              "name": "env_destination_saphome",
-              "url": "http://localhost:4004/v2/"
+              "name": "srv_api",
+              "url": "http://localhost:4004/",
+               "forwardAuthToken": true
           }
-    ]  
+    ] ,
+
+    "VCAP_SERVICES": {
+        "xsuaa": [
+            {
+                "name": "bug-story-uaa", "label": "xsuaa", "tags": [ "xsuaa" ],
+                "credentials": {
+                }
+            }
+        ]
+    }
 }

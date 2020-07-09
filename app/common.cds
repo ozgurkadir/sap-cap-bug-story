@@ -8,7 +8,7 @@ annotate bugstory.Projects with @(UI : {
     description,
     ],
     LineItem        : [
-    {Value : project_name},
-    {Value : description}
+    {Value : project_name, Label : 'Project Name'},
+    {Value : description, Label : 'Description'}
     ]
 });
