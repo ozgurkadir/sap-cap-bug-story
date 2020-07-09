@@ -1,11 +1,11 @@
 {
-  "welcomeFile": "/route_to_prodsrv/flpSandbox.html",
+  
   "authenticationMethod": "none",
   "routes": [
     {
-      "source": "^/route_to_prodsrv/(.*)$",
+      "source": "^/(.*)",
       "target": "$1",
-      "destination": "env_destination_saphome",
+      "destination": "srv_api",
       "csrfProtection": false
     }
   ]

@@ -1,48 +1,43 @@
 {
-    "name": "bug-story",
-    "version": "1.0.0",
-    "description": "A simple CAP project.",
-    "repository": "<Add your repository here>",
-    "license": "UNLICENSED",
-    "private": true,
-    "dependencies": {
-        "@sap/approuter": "^8.0.0",
-        "@sap/cds": "^3",
-        "@sap/cds-odata-v2-adapter-proxy": "^1.4.33",
-        "express": "^4",
-        "passport": "^0.4.1",
-        "sqlite3": "^4.1.1"
-    },
-    "scripts": {
-        "startdev": "npx cds run",
-        "start": "node node_modules/@sap/approuter/approuter.js",
-        "test": "mocha test/project_tests.js --timeout 15000 --exit"
-    },
-    "auth": {
-        "passport": {
-            "strategy": "mock",
-            "users": {
-                "alice": {
-                    "roles": [
-                        "admin"
-                    ]
-                }
-            }
+  "name": "bug-story",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/approuter": "^8.0.0",
+    "@sap/audit-logging": "^3.1.0",
+    "@sap/cds": "^3",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.4.33",
+    "@sap/hana-client": "^2.5.86",
+    "@sap/xsenv": "^3.0.0",
+    "@sap/xssec": "^3.0.6",
+    "express": "^4",
+    "passport": "^0.4.1",
+    "sqlite3": "^4.1.1"
+  },
+  "scripts": {
+    "startdev": "npx cds run",
+    "start": "node node_modules/@sap/approuter/approuter.js",
+    "test": "mocha test/project_tests.js --timeout 15000 --exit"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sql",
+        "credentials": {
+          "database": "db/bugstory.db"
         }
-    },
-    "cds": {
-        "requires": {
-            "db": {
-                "kind": "sqlite",
-                "credentials": {
-                    "database": "db/bugstory.db"
-                }
-            }
-        }
-    },
-    "devDependencies": {
-        "chai": "^4.2.0",
-        "chai-http": "^4.3.0",
-        "mocha": "^8.0.1"
+      },
+      "uaa": {
+        "kind": "xsuaa"
+      }
     }
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.0.1"
+  }
 }

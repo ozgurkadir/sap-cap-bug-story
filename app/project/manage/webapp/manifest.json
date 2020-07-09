@@ -13,7 +13,7 @@
 		},
 		"dataSources": {
 			"mainService": {
-				"uri": "/route_to_prodsrv/project/",
+				"uri": "/project/",
 				"type": "OData",
 				"settings": {
                     "odataVersion": "4.0"
