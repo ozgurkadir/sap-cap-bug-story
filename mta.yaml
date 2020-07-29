@@ -23,35 +23,39 @@ modules:
  # ------------------------------------------------------------
    type: nodejs
    path: gen/srv
+   build-parameters:
+     ignore: ["node_modules/"]       
    properties:
      EXIT: 1  # required by deploy.js task to terminate 
    requires:
     # Resources extracted from CAP configuration
-    - name: bug-story-db
+    - name: bug-story-db-hdi-container
     - name: bug-story-uaa
    provides:
-    - name: srv-binding      # required by consumers of CAP services (e.g. approuter)
+    - name: srv_api      # required by consumers of CAP services (e.g. approuter)
       properties:
+        url: ${default-url}
         srv-url: ${default-url}
 
  # -------------------- SIDECAR MODULE ------------------------
- - name: db
+ - name: bug-story-db
  # ------------------------------------------------------------
    type: hdb
-   path: gen/db  
+   path: gen/db
+   build-parameters:
+     ignore: ["node_modules/"]       
    parameters:
      app-name: bug-story-db  
    requires:
     # 'hana' and 'xsuaa' resources extracted from CAP configuration
-    - name: bug-story-db
+    - name: bug-story-db-hdi-container
     - name: bug-story-uaa
-
 
 resources:
  # services extracted from CAP configuration
  # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
 # ------------------------------------------------------------
- - name: bug-story-db
+ - name: bug-story-db-hdi-container
 # ------------------------------------------------------------
    type: com.sap.xs.hdi-container
    parameters:
@@ -75,4 +79,3 @@ resources:
        ## or inline definition
        # scopes:
        # - name: $XSAPPNAME...
-
