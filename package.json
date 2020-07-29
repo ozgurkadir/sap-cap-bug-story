@@ -6,26 +6,23 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@sap/approuter": "^8.0.0",
     "@sap/audit-logging": "^3.1.0",
     "@sap/cds": "^3",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.4.33",
     "@sap/hana-client": "^2.5.86",
     "@sap/xsenv": "^3.0.0",
-    "@sap/xssec": "^3.0.6",
+    "@sap/xssec": "^2.2.5",
     "express": "^4",
-    "passport": "^0.4.1",
-    "sqlite3": "^4.1.1"
+    "passport": "^0.4.1"
   },
   "scripts": {
     "startdev": "npx cds run",
-    "start": "node node_modules/@sap/approuter/approuter.js",
+    "start": "cds run",
     "test": "mocha test/project_tests.js --timeout 15000 --exit"
   },
   "cds": {
     "requires": {
       "db": {
-        "kind": "sql",
+        "kind": "hana",
         "credentials": {
           "database": "db/bugstory.db"
         }
@@ -33,6 +30,9 @@
       "uaa": {
         "kind": "xsuaa"
       }
+    },
+    "odata": {
+      "version": "v4"
     }
   },
   "devDependencies": {

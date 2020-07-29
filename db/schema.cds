@@ -57,3 +57,8 @@ entity Backlog : managed, cuid {
     issues      : Composition of many Issues
                       on issues.ID = $self;
 }
+
+entity TestEnt : managed, cuid {
+    name        : String;
+    description : String;
+}
