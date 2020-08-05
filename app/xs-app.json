@@ -3,11 +3,16 @@
   "authenticationMethod": "route",
   "routes": [
     {
-      "source": "^/srv_route/(.*)$",
+      "source": "^/srv_api/(.*)$",
       "target": "$1",
       "destination": "srv_api",
       "authenticationType": "xsuaa",
       "csrfProtection": true
-    }
+    },
+    {
+      "source": "^/app/(.*)$",
+      "target": "$1",
+      "localDir": "webapp"
+    }    
   ]
 }

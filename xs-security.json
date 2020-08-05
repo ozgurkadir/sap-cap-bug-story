@@ -1,0 +1,21 @@
+{
+  "xsappname": "bug-story",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.bug_story_pm",
+      "description": "bug_story_pm"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "bug_story_pm",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.bug_story_pm"
+      ],
+      "attribute-references": []
+    }
+  ]
+}
