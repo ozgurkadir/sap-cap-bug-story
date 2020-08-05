@@ -49,7 +49,24 @@ modules:
    requires:
     # 'hana' and 'xsuaa' resources extracted from CAP configuration
     - name: bug-story-db-hdi-container
+
+ # --------------------- APP MODULE ---------------------------
+ - name: bug-story-app
+ # ------------------------------------------------------------
+   type: nodejs
+   path: app
+   parameters:
+     memory: 256M
+     disk-quota: 1024M
+   requires:
     - name: bug-story-uaa
+    - name: srv_api
+      group: destinations
+      properties:
+         forwardAuthToken: true
+         strictSSL: false
+         name: srv_api
+         url: ~{url}
 
 resources:
  # services extracted from CAP configuration
