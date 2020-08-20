@@ -28,8 +28,7 @@ entity Issues : managed, cuid, dateInfo {
         description  : String;
         project_id   : Association to Projects;
         priority     : IssuePriority;
-        sprintIssues : Composition of many SprintIssues
-                           on sprintIssues.issue = $self;
+        sprint       : Association to Sprints;
 }
 
 entity IssueActions : managed, cuid {
@@ -46,6 +45,10 @@ entity Sprints : managed, cuid, dateInfo {
     status      : SprintStatu;
 }
 
+entity Comments : managed, cuid, dateInfo {
+    issue       : Association to Issues;
+    comment     : String;
+}
 entity SprintIssues : managed {
     key issue  : Association to Issues;
     key sprint : Association to Sprints;
@@ -56,9 +59,4 @@ entity Backlog : managed, cuid {
     description : String;
     issues      : Composition of many Issues
                       on issues.ID = $self;
-}
-
-entity TestEnt : managed, cuid {
-    name        : String;
-    description : String;
 }
