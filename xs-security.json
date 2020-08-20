@@ -17,5 +17,9 @@
       ],
       "attribute-references": []
     }
-  ]
+  ],
+  "oauth2-configuration": {
+    "token-validity": 300, 
+    "refresh-token-validity": 600
+  }
 }
