@@ -1,0 +1,36 @@
+### Read Project->Projects OData V4
+GET http://localhost:4004/project/Projects
+
+
+### Read Project->Projects OData V2
+GET http://localhost:4004/v2/project/Projects
+
+
+### Create Project->Projects OData V4
+POST http://localhost:4004/project/Projects
+Authorization: Basic kadir:1234
+Content-Type: application/json
+
+{ "project_name": "ProjectCreatedByTestV4",
+  "description": "Project Created By Test V4" }
+
+
+### Create Project->Projects OData V4
+POST http://localhost:4004/v2/project/Projects
+Authorization: Basic kadir:1234
+Content-Type: application/json
+
+{ "project_name": "ProjectCreatedByTestV2",
+  "description": "Project Created By Test V2" }
+
+
+### Create Project->Projects OData V4
+POST https://08159b0ctrial-dev-bug-story-srv.cfapps.eu10.hana.ondemand.com/project/Projects
+Authorization: Basic kadir.zgr@gmail.com:Omiko18.
+Content-Type: application/json
+
+{ "project_name": "ProjectCreatedByTestV4",
+  "description": "Project Created By Test V4" }
+
+
+
