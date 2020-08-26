@@ -24,7 +24,7 @@ modules:
    type: nodejs
    path: gen/srv
    build-parameters:
-     ignore: ["node_modules/"]       
+     ignore: ["package-lock.json", "node_modules/"]  
    properties:
      EXIT: 1  # required by deploy.js task to terminate 
    requires:
@@ -43,7 +43,7 @@ modules:
    type: hdb
    path: gen/db
    build-parameters:
-     ignore: ["node_modules/"]       
+     ignore: ["package-lock.json", "node_modules/"]     
    parameters:
      app-name: bug-story-db  
    requires:
@@ -56,7 +56,7 @@ modules:
    type: nodejs
    path: app
    build-parameters:
-     ignore: ["node_modules/"]   
+     ignore: ["package-lock.json", "node_modules/"]   
    parameters:
      memory: 256M
      disk-quota: 1024M
