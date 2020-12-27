@@ -1,5 +1,5 @@
 {
-  "welcomeFile": "/app/fiori.html",
+  "welcomeFile": "/webapp/fiori.html",
   "authenticationMethod": "route",
   "routes": [
     {
@@ -10,9 +10,30 @@
       "csrfProtection": true
     },
     {
-      "source": "^/app/(.*)$",
+      "source": "/project/(.*)$",
+      "target": "/project/$1",
+      "authenticationType": "xsuaa",
+      "destination": "srv_api",
+      "csrfProtection": true
+    },      
+    {
+      "source": "/comment/(.*)$",
+      "target": "/comment/$1",
+      "authenticationType": "xsuaa",
+      "destination": "srv_api",
+      "csrfProtection": true
+    },        
+    {
+      "source": "/sprint/(.*)$",
+      "target": "/sprint/$1",
+      "authenticationType": "xsuaa",
+      "destination": "srv_api",
+      "csrfProtection": true
+    },         
+    {
+      "source": "^/webapp/(.*)$",
       "target": "$1",
-      "localDir": "webapp"
+      "localDir": "webapp/"
     }    
   ]
 }

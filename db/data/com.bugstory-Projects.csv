@@ -1,3 +1,5 @@
-ID;project_name;description
-371b665d-d296-47da-9508-9bcf2eb1cf8b;Project_name1;Project_desc 01
-8187aaa0-5f29-4add-b335-a2436adc6775;Project_name2;Project_desc 02
+plannedStartDate;plannedEndDate;actualStartDate;actualEndDate;ID;projectName;description
+2020-05-01 12:00:00;2020-12-01 12:00:00;2020-05-01 12:00:00;2020-12-30 12:00:00;371b665d-d296-47da-9508-9bcf2eb1cf8b;SAP Portal;SAP Portal Implementation
+2020-06-20 12:00:00;2020-12-31 12:00:00;2020-07-01 12:00:00;2020-12-31 12:00:00;8187aaa0-5f29-4add-b335-a2436adc6775;SAP Ariba;Procurement Project
+2020-12-01 12:00:00;2021-12-01 12:00:00;;;ba670e5b-2648-42f6-bd7e-9f313f7989e2;SAP S4/HANA;ERP Implementation
+2019-06-01 12:00:00;2020-06-01 12:00:00;2019-06-30 12:00:00;2020-07-01 12:00:00;da20c5f3-d161-4019-b657-db7b8d65c4fe;SuccessFactors;HCM Implementation

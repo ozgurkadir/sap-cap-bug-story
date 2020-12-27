@@ -19,7 +19,7 @@
     }
   ],
   "oauth2-configuration": {
-    "token-validity": 300, 
-    "refresh-token-validity": 600
+    "token-validity": 10000, 
+    "refresh-token-validity": 6000
   }
 }

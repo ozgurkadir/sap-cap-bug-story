@@ -1,0 +1,152 @@
+{
+    "_version": "1.7.0",
+    "sap.app": {
+        "id": "com.bugstory.projectOverview",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "tags": {
+            "keywords": []
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/v2/project/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            }
+        },
+        "offline": false,
+        "sourceTemplate": {
+            "id": "OVP.smartovptemplate",
+            "version": "1.41.1"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize"
+        ]
+    },
+    "sap.ui5": {
+        "resources": {
+            "js": [],
+            "css": []
+        },
+        "dependencies": {
+            "minUI5Version": "1.65.0",
+            "libs": {
+                "sap.ovp": {}
+            },
+            "components": {}
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties",
+                "preload": false
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "mainService": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            }
+        },
+        "extends": {
+            "extensions": {}
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "analytical"
+    },
+    "sap.ovp": {
+        "globalFilterModel": "mainService",
+        "globalFilterEntityType": "Projects",
+        "containerLayout": "resizable",
+        "enableLiveFilter": true,
+        "considerAnalyticalParameters": false,
+        "cards": {
+            "IssueListCard": {
+                "model": "mainService",
+                "template": "sap.ovp.cards.list",
+                "settings": {
+                    "title": "Issue List",
+                    "entitySet": "Issues",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                    "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#Default",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.LineItem"
+                }
+            },
+
+            "cardissu": {
+                "model": "mainService",
+                "template": "sap.ovp.cards.charts.analytical",
+                "settings": {
+                    "title": "title issu ",
+                    "subTitle": "subt issune",
+                    "entitySet": "Issues",                    
+                    "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#Qualifier_ID_1",
+                    "dataPointAnnotationPath" : "com.sap.vocabularies.UI.v1.DataPoint#Qualifier_ID_1",
+                    "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#Qualifier_ID_1",
+                    "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#Qualifier_ID_1_ID"
+                }
+            },
+
+
+            "card00": {
+                "model": "mainService",
+                    "template": "sap.ovp.cards.stack",
+                    "settings": {
+                        "title": "Stack Card Title",
+                        "subTitle": "Stack Card",
+                        "itemText": "items awaiting approval",
+                        "entitySet": "Issues"
+                    }
+            }            
+        }
+    },
+    "sap.ui.generic.app": {
+        "settings": {}
+    }
+}

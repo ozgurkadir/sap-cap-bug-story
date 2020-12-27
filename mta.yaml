@@ -24,13 +24,17 @@ modules:
    type: nodejs
    path: gen/srv
    build-parameters:
-     ignore: ["package-lock.json", "node_modules/"]  
+     ignore: ["package-lock.json", "node_modules/"]
+   parameters:
+     memory: 256M
+     disk-quota: 1024M     
    properties:
      EXIT: 1  # required by deploy.js task to terminate 
    requires:
     # Resources extracted from CAP configuration
     - name: bug-story-db-hdi-container
     - name: bug-story-uaa
+    - name: userBugDestinationSrv
    provides:
     - name: srv_api      # required by consumers of CAP services (e.g. approuter)
       properties:
@@ -98,3 +102,10 @@ resources:
        ## or inline definition
        # scopes:
        # - name: $XSAPPNAME...
+# ------------------------------------------------------------       
+ - name: userBugDestinationSrv
+# ------------------------------------------------------------ 
+   type: org.cloudfoundry.managed-service
+   parameters:
+     service: destination
+     service-plan: lite

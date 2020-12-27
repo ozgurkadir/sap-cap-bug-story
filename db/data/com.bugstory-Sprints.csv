@@ -1,3 +1,7 @@
-ID;name;description;status_sprintStatu
-9018f35a-2146-4fe8-8b1a-f95be1e23954;Sprint_name1;Project_desc 01;1
-22eaefba-d78b-4569-9acc-6ef70aa8337e;Sprint_name2;Project_desc 02;2
+plannedStartDate;plannedEndDate;actualStartDate;actualEndDate;ID;description;status;projectId_ID
+2020-01-01 12:00:00;2020-02-01 12:00:00;2020-01-01 12:00:00;2020-02-01 12:00:00;9018f35a-2146-4fe8-8b1a-f95be1e23954;Dev & QA systems installation;Closed;ba670e5b-2648-42f6-bd7e-9f313f7989e2
+2020-02-01 12:00:00;2020-03-01 12:00:00;2020-02-01 12:00:00;2020-03-01 12:00:00;8f35c9c3-e486-44a0-ada6-8a8dd75f4285;Master data upload and validation;Closed;ba670e5b-2648-42f6-bd7e-9f313f7989e2
+2020-03-01 12:00:00;2020-04-01 12:00:00;2020-03-01 12:00:00;2020-04-01 12:00:00;bfaead37-4d4d-48c1-9b88-6c4caca8ef05;Tests : Custom developed objects;Closed;ba670e5b-2648-42f6-bd7e-9f313f7989e2
+2020-04-01 12:00:00;2020-11-01 12:00:00;2020-04-01 12:00:00;;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;Test : All integrations ( SAP & non-SAP );Started;ba670e5b-2648-42f6-bd7e-9f313f7989e2
+2020-11-01 12:00:00;2020-12-01 12:00:00;;;acad5438-f03c-4c34-99dd-bc7d1b307eea;Key user trainings;Created;ba670e5b-2648-42f6-bd7e-9f313f7989e2
+2021-03-01 12:00:00;2021-12-01 12:00:00;;;4b3b3d54-6ac6-420d-9825-66944b901840;End user trainings;Created;ba670e5b-2648-42f6-bd7e-9f313f7989e2

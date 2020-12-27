@@ -7,6 +7,11 @@ package-lock.json
 /db/bugstory.db
 
 bug-story_1.0.0.mtar
-
+.devcontainer
 # added by cds deploy
 default-env.json
+
+/test/ProjectsService.http
+
+# Source folder of SAP Fiori Tools generated project
+app/project1/src

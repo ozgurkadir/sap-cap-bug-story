@@ -12,8 +12,11 @@
     "@sap/hana-client": "^2.5.86",
     "@sap/xsenv": "^3.0.0",
     "@sap/xssec": "^2.2.5",
+    "dayjs": "^1.9.6",
     "express": "^4",
-    "passport": "^0.4.1"
+    "helmet": "^4.2.0",
+    "passport": "^0.4.1",
+    "passport-oauth2": "^1.5.0"
   },
   "scripts": {
     "startdev": "npx cds run",
@@ -26,8 +29,22 @@
         "kind": "xsuaa"
       },
       "db": {
-        "kind": "hana",
-        "credentials": {}
+        "kind": "sqlite",
+        "credentials": {
+          "database": "db/bugstory.db"
+        }
+      },
+      "userExtService": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "userBugDestinationSrv",
+          "path": "/Users",
+          "requestTimeout": 30000
+        },
+        "pool": {
+          "min": 1,
+          "max": 10
+        }
       }
     },
     "odata": {
@@ -35,8 +52,14 @@
     }
   },
   "devDependencies": {
+    "@sap/ux-specification": "^1.84.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^8.0.1"
-  }
+    "mocha": "^8.0.1",
+    "sqlite3": "^5.0.0"
+  },
+  "sapux": [
+    "app/project1",
+    "app/usermanagement"
+  ]
 }

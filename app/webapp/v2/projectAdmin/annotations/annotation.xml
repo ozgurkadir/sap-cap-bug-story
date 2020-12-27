@@ -1,0 +1,18 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="/v2/project/$metadata">
+        <edmx:Include Namespace="ProjectsService" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.bugstory">
+            <Annotations Target="ProjectsService.EntityContainer/Issues_startIssue">     
+                <Annotation Term="com.sap.vocabularies.Common.v1.IsActionCritical" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ProjectsService.EntityContainer/Issues_closeIssue">     
+                <Annotation Term="com.sap.vocabularies.Common.v1.IsActionCritical" Bool="true"/>
+            </Annotations>
+            <Annotations Target="ProjectsService.EntityContainer/Issues_cancelIssue">     
+                <Annotation Term="com.sap.vocabularies.Common.v1.IsActionCritical" Bool="true"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

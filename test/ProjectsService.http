@@ -11,7 +11,7 @@ POST http://localhost:4004/project/Projects
 Authorization: Basic kadir:1234
 Content-Type: application/json
 
-{ "project_name": "ProjectCreatedByTestV4",
+{ "projectName": "ProjectCreatedByTestV4",
   "description": "Project Created By Test V4" }
 
 
@@ -20,7 +20,7 @@ POST http://localhost:4004/v2/project/Projects
 Authorization: Basic kadir:1234
 Content-Type: application/json
 
-{ "project_name": "ProjectCreatedByTestV2",
+{ "projectName": "ProjectCreatedByTestV2",
   "description": "Project Created By Test V2" }
 
 
@@ -29,8 +29,20 @@ POST https://08159b0ctrial-dev-bug-story-srv.cfapps.eu10.hana.ondemand.com/proje
 Authorization: Basic kadir.zgr@gmail.com:Omiko18.
 Content-Type: application/json
 
-{ "project_name": "ProjectCreatedByTestV4",
+{ "projectName": "ProjectCreatedByTestV4",
   "description": "Project Created By Test V4" }
 
 
 
+### Create Project->Projects OData V4
+POST http://localhost:4004/v2/project/Sprints
+Authorization: Basic kadir:1234
+Content-Type: application/json
+
+		{
+			"name": "Sprint_http",
+			"description": "Project_desc 02",
+			"status": 7,
+			"numberOfIssues": 8,
+			"project_id_ID": "371b665d-d296-47da-9508-9bcf2eb1cf8b"
+		}

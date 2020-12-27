@@ -1,3 +1,8 @@
-ID_ID;type_issueType;priority_issuePriority
-69463ed7-d72f-4e8c-b787-f522abe81e34;E;M
-845d773d-c122-4fa4-9cc6-ef45378aa58e;T;L
+plannedStartDate;plannedEndDate;actualStartDate;actualEndDate;description;issueStatu;type_issueType;projectId_ID;priority_issuePriority;sprint_ID;user_userID
+2020-04-01 12:00:00;2020-06-01 12:00:00;2020-04-01 12:00:00;;HCM employee data integration ;Started;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;Medium;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;pascalNouma
+2020-04-01 12:00:00;2020-09-15 12:00:00;2020-05-01 12:00:00;2020-09-15 12:00:00;MES ( ME-MII ) integration;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;High;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;marioGomez
+2020-04-01 12:00:00;2020-06-01 12:00:00;;;E-Invoice system integration;Created;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;Medium;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;ronaldoElFenomeno
+2020-09-01 12:00:00;2020-11-01 12:00:00;;;BW integration;Created;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;High;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;diegoMaradona
+2020-04-01 12:00:00;2020-10-01 12:00:00;2020-05-01 12:00:00;2020-10-01 12:00:00;CMS integration;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;Medium;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;ricardoQuaresma
+2020-09-01 12:00:00;2020-10-01 12:00:00;2020-09-01 12:00:00;2020-10-01 12:00:00;TM integration;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;High;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;ricardoQuaresma
+2020-04-01 12:00:00;2020-08-15 12:00:00;2020-05-01 12:00:00;2020-08-20 12:00:00;Warehouse robotics integration;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;High;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;diegoMaradona
