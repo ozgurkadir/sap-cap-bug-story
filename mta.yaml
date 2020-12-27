@@ -24,24 +24,17 @@ modules:
    type: nodejs
    path: gen/srv
    build-parameters:
-<<<<<<< HEAD
      ignore: ["package-lock.json", "node_modules/"]
    parameters:
      memory: 256M
      disk-quota: 1024M     
-=======
-     ignore: ["package-lock.json", "node_modules/"]  
->>>>>>> bfa97ff220ae52f0f8cb728582dd4ca2a0a68234
    properties:
      EXIT: 1  # required by deploy.js task to terminate 
    requires:
     # Resources extracted from CAP configuration
     - name: bug-story-db-hdi-container
     - name: bug-story-uaa
-<<<<<<< HEAD
     - name: userBugDestinationSrv
-=======
->>>>>>> bfa97ff220ae52f0f8cb728582dd4ca2a0a68234
    provides:
     - name: srv_api      # required by consumers of CAP services (e.g. approuter)
       properties:
