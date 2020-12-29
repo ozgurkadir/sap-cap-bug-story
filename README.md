@@ -22,7 +22,7 @@ File / Folder | Purpose
 
 ## DEMO
 
-![](demo/bug-story-demo.gif.gif)
+![](demo/bug-story-demo.gif)
 
 ## Next Steps...
 ```sh
