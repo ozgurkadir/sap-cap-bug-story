@@ -31,25 +31,25 @@ entity Projects : managed, dateInfo, cuid {
 
 entity Issues : managed, cuid, dateInfo {
     //    key ID          : Association to Backlog;
-    type                          : IssueType;
-    description                   : String;
-    projectId                     : Association to Projects;
-    priority                      : IssuePriority;
-    sprint                        : Association to Sprints;
-    comments                      : Composition of many Comments
-                                        on comments.issue = $self;
-    issueStatu                    : String  @assert.range enum {
-        Created                             @(title : 'Created');
-        Started                             @(title : 'Started');
-        Closed                              @(title : 'Closed');
-        Cancelled                           @(title : 'Cancelled');
+    type                : IssueType;
+    description         : String;
+    projectId           : Association to Projects;
+    priority            : IssuePriority;
+    sprint              : Association to Sprints;
+    comments            : Composition of many Comments
+                              on comments.issue = $self;
+    issueStatu          : String  @assert.range enum {
+        Created                   @(title : 'Created');
+        Started                   @(title : 'Started');
+        Closed                    @(title : 'Closed');
+        Cancelled                 @(title : 'Cancelled');
     } default 'Created';
-    user                          : Association to Users;
-    virtual criticality           : Integer @assert.range enum {
-                 Neutral = 0          @(title : 'Neutral');
+    user                : Association to Users;
+    virtual criticality : Integer @assert.range enum {
+        Neutral = 0          @(title : 'Neutral');
                 Negative = 1 @(title : 'Negative');
                 Critical = 2 @(title : 'Critical');
-                Positive = 3                @(title : 'Positive');
+                Positive = 3      @(title : 'Positive');
     };
 }
 
@@ -81,11 +81,11 @@ entity Comments : managed, cuid, dateInfo {
 
 @cds.persistence.skip
 entity SprintIssuesforCharts {
-    key ID          : UUID;
-        description : String;
-        totalDays   : Integer;
-        usedDays    : Integer;
-        daysLeft    : Integer;
+    key ID            : UUID;
+        description   : String;
+        daysPlanned   : Integer;
+        daysSpent     : Integer;
+        daysRemaining : Integer;
 };
 
 @cds.odata.valuelist

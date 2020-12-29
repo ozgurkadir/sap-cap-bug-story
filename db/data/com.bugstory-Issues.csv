@@ -6,3 +6,9 @@ plannedStartDate;plannedEndDate;actualStartDate;actualEndDate;description;issueS
 2020-04-01 12:00:00;2020-10-01 12:00:00;2020-05-01 12:00:00;2020-10-01 12:00:00;CMS integration;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;Medium;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;ricardoQuaresma
 2020-09-01 12:00:00;2020-10-01 12:00:00;2020-09-01 12:00:00;2020-10-01 12:00:00;TM integration;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;High;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;ricardoQuaresma
 2020-04-01 12:00:00;2020-08-15 12:00:00;2020-05-01 12:00:00;2020-08-20 12:00:00;Warehouse robotics integration;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;High;676d4cfe-7c62-41ad-9947-40eb7c8fbc3e;diegoMaradona
+2020-02-09 12:00:00;2020-02-24 12:00:00;2020-02-09 12:00:00;2020-02-24 12:00:00;FI-CO Master Data upload;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;High;8f35c9c3-e486-44a0-ada6-8a8dd75f4285;pascalNouma
+2020-02-03 12:00:00;2020-02-24 12:00:00;2020-02-09 12:00:00;2020-02-24 12:00:00;MM-SD Master Data upload;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;High;8f35c9c3-e486-44a0-ada6-8a8dd75f4285;pascalNouma
+2020-02-01 12:00:00;2020-02-27 12:00:00;2020-02-27 12:00:00;2020-02-27 12:00:00;PP-QM Master Data upload;Closed;Task;ba670e5b-2648-42f6-bd7e-9f313f7989e2;High;8f35c9c3-e486-44a0-ada6-8a8dd75f4285;ricardoQuaresma
+2020-03-10 12:00:00;2020-03-24 12:00:00;2020-03-09 12:00:00;2020-03-24 12:00:00;FI-CO implementations tests;Closed;Task;bfaead37-4d4d-48c1-9b88-6c4caca8ef05;High;bfaead37-4d4d-48c1-9b88-6c4caca8ef05;pascalNouma
+2020-03-03 12:00:00;2020-03-24 12:00:00;2020-03-03 12:00:00;2020-03-29 12:00:00;MM-SD implementations tests;Closed;Task;bfaead37-4d4d-48c1-9b88-6c4caca8ef05;High;bfaead37-4d4d-48c1-9b88-6c4caca8ef05;pascalNouma
+2020-03-01 12:00:00;2020-03-15 12:00:00;2020-03-01 12:00:00;2020-03-17 12:00:00;PP-QM implementations tests;Closed;Task;bfaead37-4d4d-48c1-9b88-6c4caca8ef05;High;bfaead37-4d4d-48c1-9b88-6c4caca8ef05;ricardoQuaresma

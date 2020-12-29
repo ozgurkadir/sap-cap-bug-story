@@ -2,6 +2,35 @@ const cds = require("@sap/cds");
 const dayjs = require("dayjs");
 
 const gettotalDaysDAYJS = (issueList) =>
+  issueList.map(
+    (currentValueSprintLine) => ({
+        description: currentValueSprintLine.description,
+        ID: currentValueSprintLine.ID,
+        daysRemaining: 0,
+        daysPlanned: currentValueSprintLine.issues.reduce(
+          (accumulatorIssueLine, currentValueIssueLine) =>
+            (accumulatorIssueLine += _getDateDifferenceDAYJS(
+              dayjs(currentValueIssueLine.plannedStartDate),
+              dayjs(currentValueIssueLine.plannedEndDate)
+            )),
+            0
+        ),
+
+        daysSpent: currentValueSprintLine.issues.reduce(
+          (accumulatorIssueLine, currentValueIssueLine) =>
+            (accumulatorIssueLine += _getActualDateDifferenceDAYJS(
+              dayjs(currentValueIssueLine.actualStartDate),
+              dayjs(currentValueIssueLine.actualEndDate)
+            )),
+            0
+        ),              
+    }),
+    {}
+  );
+
+
+/*
+const gettotalDaysDAYJS = (issueList) =>
   issueList.reduce(
     (accumulatorSprintLine, currentValueSprintLine) => ({
       ...accumulatorSprintLine,
@@ -29,6 +58,7 @@ const gettotalDaysDAYJS = (issueList) =>
     }),
     {}
   );
+*/
 
   const readsprintIssues = (Sprints, req) => cds.tx(req).run(
     SELECT.from(Sprints, (s) => {

@@ -141,21 +141,33 @@ annotate bugstory.Sprints with @(UI : {
 
 
 annotate bugstory.Issues with @(UI : {
-    HeaderInfo                        : {
+    HeaderInfo                         : {
 
         TypeName       : '{i18n>issue}',
         TypeNamePlural : '{i18n>issues}',
-        Description    : {
+        Title          : {
             $Type : 'UI.DataField',
             Value : description,
         },
+        Description    : {
+            $Type : 'UI.DataField',
+            Value : user.UserName,
+        },
     },
 
-    Facets                            : [
+    Facets                             : [
     {
         $Type  : 'UI.ReferenceFacet',
         Target : '@UI.FieldGroup#issuesQual',
         Label  : '{i18n>issueDetails}'
+    },
+
+    {
+        $Type            : 'UI.ReferenceFacet',
+        Target           : '@UI.FieldGroup#issuesStackCardDetails',
+        Label            : '{i18n>issueDetails}',
+        ![@UI.IsSummary] : true, //Necessary for stack card details
+        ![@UI.Hidden]    : true,
     },
 
     {
@@ -165,7 +177,7 @@ annotate bugstory.Issues with @(UI : {
     }
 
     ],
-    Identification                    : [
+    Identification                     : [
     {
         $Type  : 'UI.DataFieldForAction',
         Action : 'ProjectsService.EntityContainer/Issues_startIssue',
@@ -183,12 +195,45 @@ annotate bugstory.Issues with @(UI : {
     },
     ],
 
-    FieldGroup #issuesQual            : {
+
+    FieldGroup #issuesStackCardDetails : {
+        $Type : 'UI.FieldGroupType',
+        Data  : [
+        {
+            $Type : 'UI.DataField',
+            Value : priority_issuePriority,
+            Label : '{i18n>priority}'
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : plannedStartDate,
+            Label : '{i18n>plannedStartDate}'
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : plannedEndDate,
+            Label : '{i18n>plannedEndDate}'
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : actualStartDate,
+            Label : '{i18n>actualStartDate}'
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : actualEndDate,
+            Label : '{i18n>actualEndDate}'
+        }
+        ],
+    },
+
+    FieldGroup #issuesQual             : {
         $Type : 'UI.FieldGroupType',
         Data  : [
         {
             $Type : 'UI.DataField',
             Value : description,
+
         },
         {
             $Type : 'UI.DataField',
@@ -209,11 +254,19 @@ annotate bugstory.Issues with @(UI : {
         {
             $Type : 'UI.DataField',
             Value : user_userID,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : priority_issuePriority,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : type_issueType,
         }
         ],
     },
 
-    LineItem                          : [
+    LineItem                           : [
     {
         $Type  : 'UI.DataFieldForAction',
         Action : 'ProjectsService.EntityContainer/Issues_startIssue',
@@ -261,28 +314,9 @@ annotate bugstory.Issues with @(UI : {
     }
     ],
 
-    Identification #Qualifier_ID_1_ID : [
+    Identification #Qualifier_ID_1_ID  : [
 
     ],
-
-    Chart #Qualifier_ID_1             : {
-        $Type               : 'UI.ChartDefinitionType',
-        ChartType           : #Donut,
-        Title               : 'Issue Status',
-        MeasureAttributes   : [{
-            $Type   : 'UI.ChartMeasureAttributeType',
-            Measure : issueStatu,
-            Role    : #Axis1
-        }, ],
-
-        DimensionAttributes : [{
-            $Type     : 'UI.ChartDimensionAttributeType',
-            Dimension : type_issueType,
-            Role      : #Category
-        }, ],
-
-    },
-
 });
 
 annotate bugstory.Comments with @(UI : {
@@ -345,15 +379,66 @@ annotate bugstory.Users with @(UI : {
 });
 
 
+annotate bugstory.SprintIssuesforCharts with @(UI : {
+    Chart #QlfPlannedDaysDonut         : {
+        $Type               : 'UI.ChartDefinitionType',
+        ChartType           : #Donut,
+        MeasureAttributes   : [{
+            $Type   : 'UI.ChartMeasureAttributeType',
+            Measure : daysPlanned,
+            Role    : #Axis1
+        }, ],
+
+        DimensionAttributes : [{
+            $Type     : 'UI.ChartDimensionAttributeType',
+            Dimension : description,
+            Role      : #Category
+        }, ],
+
+    },
+
+    Chart #QlfAllIssuesResourcesColumn : {
+        $Type               : 'UI.ChartDefinitionType',
+        ChartType           : #Column,
+        MeasureAttributes   : [
+        {
+            $Type   : 'UI.ChartMeasureAttributeType',
+            Measure : daysPlanned,
+            Role    : #Axis1
+        },
+        {
+            $Type   : 'UI.ChartMeasureAttributeType',
+            Measure : daysRemaining,
+            Role    : #Axis1
+        },
+        {
+            $Type   : 'UI.ChartMeasureAttributeType',
+            Measure : daysSpent,
+            Role    : #Axis1
+        },
+        ],
+
+        DimensionAttributes : [{
+            $Type     : 'UI.ChartDimensionAttributeType',
+            Dimension : description,
+            Role      : #Category
+        }, ],
+
+    },
+});
+
+
 annotate bugstory.Issues with {
-    actualStartDate  @title : '{i18n>actualStartDate}';
-    actualEndDate    @title : '{i18n>actualEndDate}';
-    plannedStartDate @title : '{i18n>plannedStartDate}';
-    plannedEndDate   @title : '{i18n>plannedEndDate}';
-    issueStatu       @title : '{i18n>issueStatu}';
-    description      @title : '{i18n>description}';
-    description      @UI.MultiLineText;
-    user             @title : '{i18n>userID}'
+    actualStartDate        @title : '{i18n>actualStartDate}';
+    actualEndDate          @title : '{i18n>actualEndDate}';
+    plannedStartDate       @title : '{i18n>plannedStartDate}';
+    plannedEndDate         @title : '{i18n>plannedEndDate}';
+    issueStatu             @title : '{i18n>issueStatu}';
+    type_issueType         @title : '{i18n>issueType}';
+    priority_issuePriority @title : '{i18n>issuePriority}';
+    description            @title : '{i18n>description}';
+    description            @UI.MultiLineText;
+    user                   @title : '{i18n>userID}'
 }
 
 annotate bugstory.Sprints with {

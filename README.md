@@ -6,7 +6,7 @@ Contains these features of CAP :
 
 - Authentication & Authorization (XSUAA and approuter )
 - Custom actions
-- Fiori elements UI's
+- Fiori elements UI's (List Report - Object Page & Overview Page)
 - Project "Piper" based simple Jenkins pipeline (Jenkins instance is required)
 - Multitarget Application (MTA)
 
@@ -20,7 +20,9 @@ File / Folder | Purpose
 `package.json` | project metadata and configuration
 `readme.md` | this getting started guide
 
+## DEMO
 
+![](demo/bug-story-demo.gif.gif)
 
 ## Next Steps...
 ```sh
