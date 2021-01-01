@@ -3,3 +3,4 @@
 */
 using from './common';
 using from '../srv/project-service';
+using from './projectAdmin';

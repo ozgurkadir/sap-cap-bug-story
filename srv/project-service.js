@@ -83,6 +83,18 @@ module.exports = (srv) => {
     );
   });
 
+  srv.on("assignUser", "Issues", async (req) => {
+    let [issueID] = req.params;
+    let userID = req.data.userid;
+
+    const n = await UPDATE("com_bugstory_Issues")
+      .set({
+        user_userID: userID   
+      })
+      .where({ ID: issueID });
+    n > 0 || req.error(409, "Update failed!");
+  });
+  
   srv.on("CREATE", "Issues", (req) => {
     //req.data.issueStatu = 1;
   });

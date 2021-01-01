@@ -1,5 +1,4 @@
 using {com.bugstory as bugstory} from '../db/schema';
-using ProjectsService from '../srv/project-service';
 
 annotate bugstory.Projects with @(UI : {
 
@@ -91,14 +90,6 @@ annotate bugstory.Sprints with @(UI : {
         Target : 'issues/@UI.LineItem',
         Label  : '{i18n>issues}',
     },
-
-    {
-        $Type  : 'UI.ReferenceFacet',
-        Target : 'issues/@UI.Chart#Qualifier_ID_1',
-        Label  : '{i18n>issuesChart}'
-
-    }
-
     ],
 
     HeaderInfo           : {
@@ -193,6 +184,11 @@ annotate bugstory.Issues with @(UI : {
         Action : 'ProjectsService.EntityContainer/Issues_cancelIssue',
         Label  : '{i18n>cancelIssue}'
     },
+    {
+        $Type  : 'UI.DataFieldForAction',
+        Action : 'ProjectsService.EntityContainer/Issues_assignUser',
+        Label  : '{i18n>assignUser}'
+    },
     ],
 
 
@@ -283,6 +279,11 @@ annotate bugstory.Issues with @(UI : {
         Action : 'ProjectsService.EntityContainer/Issues_cancelIssue',
         Label  : '{i18n>cancelIssue}'
     },
+    {
+        $Type  : 'UI.DataFieldForAction',
+        Action : 'ProjectsService.EntityContainer/Issues_assignUser',
+        Label  : '{i18n>assignUser}'
+    },    
     {
         $Type : 'UI.DataField',
         Value : description,
