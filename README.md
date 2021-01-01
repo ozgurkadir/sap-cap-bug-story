@@ -5,7 +5,7 @@ Bug-Story is a sample project management application developed by SAP Cloud Appl
 Contains these features of CAP :
 
 - Authentication & Authorization (XSUAA and approuter )
-- Custom actions
+- Custom actions (Includes confirmation popup and value help annotations )
 - Fiori elements UI's (List Report - Object Page & Overview Page)
 - Project "Piper" based simple Jenkins pipeline (Jenkins instance is required)
 - Multitarget Application (MTA)
