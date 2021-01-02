@@ -24,6 +24,13 @@ File / Folder | Purpose
 
 ![](demo/bug-story-demo.gif)
 
+## Environment Prerequisites
+- Node.js version 10 or 12
+- @sap/cds-dk ( https://cap.cloud.sap/docs/get-started/ ) 
+- Cloud MTA Build Tool (MBT) ( https://sap.github.io/cloud-mta-build-tool/download/ )
+- Cloud Foundry CLI ( https://docs.cloudfoundry.org/cf-cli/install-go-cli.html )
+- Cloud Foundry CLI MTA (aka MultiApps) plugin ( https://developers.sap.com/tutorials/cp-cf-install-cliplugin-mta.html )
+
 ## Next Steps...
 ```sh
 - git clone https://github.com/ozgurkadir/bug-story.git
