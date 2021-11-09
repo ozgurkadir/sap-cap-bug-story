@@ -11,3 +11,4 @@ default-env.json
 
 # Source folder of SAP Fiori Tools generated project
 app/project1/src
+package-lock.json
