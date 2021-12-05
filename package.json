@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@graphql-tools/schema": "^8.3.1",
     "@sap/audit-logging": "^5.1.0",
     "@sap/cds": "^5",
     "@sap/cds-odata-v2-adapter-proxy": "^1.7.15",
@@ -14,6 +15,8 @@
     "@sap/xssec": "^3.2.10",
     "dayjs": "^1.10.7",
     "express": "^4",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.0.1",
     "helmet": "^4.6.0",
     "passport": "^0.5.0",
     "passport-oauth2": "^1.6.1"
@@ -46,6 +49,9 @@
           "max": 10
         }
       }
+    },
+    "features": {
+      "graphql": true
     },
     "odata": {
       "version": "v4"
