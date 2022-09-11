@@ -107,7 +107,11 @@ annotate bugstory.Sprints with @(UI : {
         Data  : [{
             $Type : 'UI.DataField',
             Value : description,
-        }, ],
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : numberOfIssues,
+        },],
     },
 
     LineItem             : [
@@ -127,6 +131,10 @@ annotate bugstory.Sprints with @(UI : {
         $Type : 'UI.DataField',
         Value : status,
     },
+    {
+        $Type : 'UI.DataField',
+        Value : numberOfIssues,
+    },    
     ],
 });
 
@@ -449,6 +457,7 @@ annotate bugstory.Sprints with {
     plannedEndDate   @title : '{i18n>plannedEndDate}';
     status           @title : '{i18n>status}';
     description      @title : '{i18n>description}';
+    numberOfIssues   @title : '{i18n>numberOfIssues}';
     description      @UI.MultiLineText;
 };
 

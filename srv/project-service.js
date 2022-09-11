@@ -4,13 +4,13 @@ const serviceDal = require("./data-access")
 
 module.exports = (srv) => {
   const { Issues, Sprints, externalUser } = srv.entities;
-  
+
 
   srv.on("READ", "externalUser", async (req) => {
-    
+
     //const service = await cds.connect.to('userExtService');    
     //return  service.tx(req).run(req.query);
-	});
+  });
 
   srv.on("CREATE", "Projects", (req) => {
     console.log("User ID is : " + req.user.id);
@@ -18,15 +18,14 @@ module.exports = (srv) => {
     console.log("Auth Info Data " + req);
   });
 
-  srv.on("UPDATE", "Sprints", (req) => {});
+  srv.on("UPDATE", "Sprints", (req) => { });
 
   srv.after("READ", "Sprints", (sprints, req) => {
     return Promise.all(
       sprints.map(async (sprint) => {
-        const issuesAll = await cds
+        sprint.numberOfIssues = ( await cds
           .transaction(req)
-          .run(SELECT.from(Issues).where({ sprint_ID: sprint.ID }));
-        // sprint.numberOfIssues = issuesAll.length;
+          .run(SELECT.from(Issues).where({ sprint_ID: sprint.ID }))).length;
       })
     );
   });
@@ -36,7 +35,7 @@ module.exports = (srv) => {
     const sprintIssues = await serviceDal.readsprintIssues(Sprints, req)
 
     const totalDays = gettotalDays(sprintIssues);
-    const totalDAYJS = serviceDal.gettotalDaysDAYJS(sprintIssues);    
+    const totalDAYJS = serviceDal.gettotalDaysDAYJS(sprintIssues);
     return totalDAYJS
   });
 
@@ -89,12 +88,12 @@ module.exports = (srv) => {
 
     const n = await UPDATE("com_bugstory_Issues")
       .set({
-        user_userID: userID   
+        user_userID: userID
       })
       .where({ ID: issueID });
     n > 0 || req.error(409, "Update failed!");
   });
-  
+
   srv.on("CREATE", "Issues", (req) => {
     //req.data.issueStatu = 1;
   });
@@ -105,19 +104,19 @@ module.exports = (srv) => {
     const n = await UPDATE("com_bugstory_Issues")
       .set({
         issueStatu: "Started",
-        actualStartDate: Date.now(),      
+        actualStartDate: Date.now(),
       })
       .where({ ID: issueID });
     n > 0 || req.error(409, "Update failed!");
   });
-  
+
   srv.on("closeIssue", "Issues", async (req) => {
     let [issueID] = req.params;
 
     const n = await UPDATE("com_bugstory_Issues")
       .set({
         issueStatu: "Closed",
-        actualEndDate: Date.now(),      
+        actualEndDate: Date.now(),
       })
       .where({ ID: issueID });
     n > 0 || req.error(409, "Update failed!");
@@ -234,10 +233,10 @@ const gettotalDays = (issueList) =>
         ID: currentValueSprintLine.ID,
         totalDays: currentValueSprintLine.issues.reduce(
           (accumulatorIssueLine, currentValueIssueLine) =>
-            (accumulatorIssueLine += getDateDifference(
-              currentValueIssueLine.plannedStartDate,
-              currentValueIssueLine.plannedEndDate
-            )),
+          (accumulatorIssueLine += getDateDifference(
+            currentValueIssueLine.plannedStartDate,
+            currentValueIssueLine.plannedEndDate
+          )),
           0
         ),
       },
