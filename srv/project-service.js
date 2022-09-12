@@ -21,6 +21,7 @@ module.exports = (srv) => {
   srv.on("UPDATE", "Sprints", (req) => { });
 
   srv.after("READ", "Sprints", (sprints, req) => {
+    if (!Array.isArray(sprints)) sprints = [sprints]
     return Promise.all(
       sprints.map(async (sprint) => {
         sprint.numberOfIssues = ( await cds
