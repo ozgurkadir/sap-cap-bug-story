@@ -27,15 +27,16 @@
     "test": "mocha test/project_tests.js --timeout 15000 --exit"
   },
   "cds": {
+    "hana": {
+      "deploy-format": "hdbtable"
+    },
     "requires": {
       "uaa": {
         "kind": "xsuaa"
       },
       "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "database": "db/bugstory.db"
-        }
+        "kind": "hana",
+        "credentials": {}
       },
       "userExtService": {
         "kind": "rest",
